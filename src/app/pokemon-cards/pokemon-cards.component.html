@@ -1,1 +1,3 @@
-<p>pokemon-cards works!</p>
+<mat-grid-list cols="6" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let pokemonCard of pokemonCards">{{ pokemonCard.name }}</mat-grid-tile>
+</mat-grid-list>
