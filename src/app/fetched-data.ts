@@ -1,6 +1,6 @@
 export interface FetchedData {
-    count: number;
-    next: string;
-    previous: string;
-    results: [];
+  count?: number;
+  next?: string;
+  previous?: string;
+  results?: [];
 }

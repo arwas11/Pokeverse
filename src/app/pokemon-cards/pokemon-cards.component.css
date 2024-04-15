@@ -1,7 +1,27 @@
-.card {
-    max-width: 400px;
-  }
+.poke-card {
+  max-width: 400px;
+  margin-bottom: 8px;
+  border: 2pt solid green;
+}
 
-  mat-grid-tile {
-    background: lightgray;
-  }
+.cards-container {
+  display: flex;
+  border: 2pt solid rgb(247, 2, 43);
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+}
+.mat-mdc-card-header {
+  justify-content: center;
+}
+
+.mat-mdc-card-content > p {
+  display: flex;
+}
+/* .card-content-div{
+    display: flex;
+  } */
+.added-to-squad-message{
+  border: 4pt dotted orange;
+}

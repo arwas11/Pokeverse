@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FetchedData } from './fetched-data';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 import { Pokemon } from './pokemon';
+import { HttpClient } from '@angular/common/http';
+import { PokemonCardService } from './pokemon-card.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,18 @@ export class PokemonService {
 
   searchedPokemon: Pokemon[] = [];
 
-  pokemonUrl = `https://pokeapi.co/api/v2/pokemon?limit=151`;
-  constructor(private http: HttpClient) {}
+
+  pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${}`;
+
+  constructor(private http: HttpClient, private pokemonCardService: PokemonCardService) {}
 
   getPokemonData() {
-    return this.http.get<FetchedData>(this.pokemonUrl)
+    // this.pokemonCardService.getPokemonCardsData().subscribe((data) => {
+    //   if (data.results.length > 10) {
+    //     this.pokemonCards = data.results;
+    //     console.log('all oninit', this.pokemonCards);
+    //   }
+    // });  
   }
 
   // searchPokemon(pokemon: string): Observable<Pokemon[]>{

@@ -1,3 +1,68 @@
-<mat-grid-list cols="6" rowHeight="2:1">
-    <mat-grid-tile *ngFor="let pokemonCard of pokemonCards">{{ pokemonCard.name }}</mat-grid-tile>
-</mat-grid-list>
+<div class="cards-container" *ngIf="squadLength">
+  <h1>My Squad</h1>
+  <div class="battle-btn-div" *ngIf="toggleBattleBtn">
+    <h1>battle</h1>
+    <button mat-raised-button color="warn" (click)="battleHandler()">
+      Battle
+    </button>
+  </div>
+  <mat-card class="poke-card" *ngFor="let squadCard of squad">
+    <mat-card-header>
+      <mat-card-title>{{ squadCard.name }}</mat-card-title>
+    </mat-card-header>
+    <img
+      src="{{ squadCard.data?.sprites?.front_default }}"
+      alt="{{ squadCard.name }}"
+    />
+    <mat-card-content class="card-content-div">
+      <p><strong>MOVE:</strong> {{squadCard.data?.moves?.[0]?.move?.name}}</p>
+      <br />
+      <p>
+        <strong>LEVEL: </strong>
+        {{squadCard.data?.moves?.[0]?.version_group_details?.[0]?.level_learned_at}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="RemovePokemon(squadCard)">
+        Remove Pokemon
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div class="message" *ngIf="addToSquadBtn">
+  <h2>
+    {{ message }}
+  </h2>
+</div>
+
+<h1>All Pokemon</h1>
+<div class="cards-container">
+  <br />
+  <mat-card class="poke-card" *ngFor="let pokemonCard of pokemonCards">
+    <mat-card-header>
+      <mat-card-title>{{ pokemonCard.name }}</mat-card-title>
+    </mat-card-header>
+    <img
+      src="{{ pokemonCard.data?.sprites?.front_default }}"
+      alt="{{ pokemonCard.name }}"
+    />
+    <mat-card-content class="card-content-div">
+      <p><strong>MOVE:</strong> {{pokemonCard.data?.moves?.[0]?.move?.name}}</p>
+      <br />
+      <p>
+        <strong>LEVEL: </strong>
+        {{pokemonCard.data?.moves?.[0]?.version_group_details?.[0]?.level_learned_at}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-stroked-button color="accent"
+        (click)="addPokemon(pokemonCard)"
+        *ngIf="addToSquadBtn"
+      >
+        Add To Squad
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
