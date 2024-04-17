@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test-chrome": "CHROME BIN=/user/bin/google-chrome && ng test"
+
   },
   "private": true,
   "dependencies": {
