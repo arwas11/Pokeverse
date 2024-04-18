@@ -1,12 +1,12 @@
 .poke-card {
   max-width: 400px;
   margin-bottom: 8px;
-  border: 2pt solid green;
+  /* border: 2pt solid green; */
 }
 
 .cards-container {
   display: flex;
-  border: 2pt solid rgb(247, 2, 43);
+  /* border: 2pt solid rgb(247, 2, 43); */
   justify-content: space-evenly;
   flex-wrap: wrap;
   flex-direction: row;
@@ -23,5 +23,5 @@
     display: flex;
   } */
 .added-to-squad-message{
-  border: 4pt dotted orange;
+  /* border: 4pt dotted orange; */
 }

@@ -108,20 +108,27 @@ export class PokemonCardsComponent implements OnInit {
   public battleBtn = false;
 
   battleHandler() {
-    this.battleBtn = !this.battleBtn;
-    console.log('battle btn ', this.battleBtn);
+    this.battleBtn = true;
+    // console.log('battle btn ', this.battleBtn);
   }
   RemovePokemon(squadCard: Pokemon) {
     if (this.squad.includes(squadCard)) {
       this.message = 'You removed a Pokemon from your Squad';
 
       this.removeFromSquadBtn = true;
-      console.log(`removing`);
+      // console.log(`removing`);
       const squadCardIndx = this.squad.indexOf(squadCard);
-      console.log(`card index`, squadCardIndx);
+      // console.log(`card index`, squadCardIndx);
       this.squad.splice(squadCardIndx, 1);
       this.message = '';
       this.removeFromSquadBtn = false;
+    }
+    if (this.squad.length < 2) {
+      this.toggleBattleBtn = false;
+    }
+    if (this.squad.length === 0) {
+      this.toggleBattleBtn = false;
+      this.squadLength = 0;
     }
   }
 }
